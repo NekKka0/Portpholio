@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Проекты - Портфолио студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="logo">
+                        <span class="logo__text">Толстикова Вероника</span>
+                    </div>
+                    <nav class="nav" aria-label="Основная навигация">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                            <li class="nav__item"><a href="projects.html" class="nav__link active">Проекты</a></li>
+                            <li class="nav__item"><a href="diary.html" class="nav__link">Дневник</a></li>
+                            <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main" class="main">
+            <section class="projects">
+                <div class="container">
+                    <h1 class="page-title">Мои проекты</h1>
+
+                    <!-- Демонстрация адаптивных изображений -->
+                    <div class="adaptive-images-demo">
+                        <h2 class="section-title">Демонстрация адаптивных изображений</h2>
+
+                        <!-- Техника 1: Базовое адаптивное изображение -->
+                        <div class="demo-section">
+                            <h3>1. Базовое адаптивное изображение</h3>
+                            <picture>
+                                <source type="image" srcset="../images/adapt.avif">
+                                <source type="image" srcset="../images/adapt.webp">
+                                <img src="../images/adapt.png" alt="Пейзаж" class="responsive-image">
+                            </picture>
+                        </div>
+
+                        <!-- Техника 2: Picture element с форматами -->
+                        <div class="demo-section">
+                            <h3>2. Picture element с форматами</h3>
+                            <picture>
+                                <source srcset="../images/formats.avif" type="image">
+                                <source srcset="../images/formats.webp" type="image">
+                                <source srcset="../images/formats.png" type="image">
+                                <img src="../images/formats.png" class="responsive-image" alt="Портрет">
+                            </picture>
+                        </div>
+
+                        <!-- Техника 3: Разные изображения для разных экранов -->
+                        <div class="demo-section">
+                            <h3>3. Разные изображения для разных экранов</h3>
+                            <picture>
+                                <source srcset="../images/screens.avif" type="image">
+                                <source srcset="../images/screens.webp" type="image">
+                                <source srcset="../images/screens.png" type="image">
+                                <img src="../images/screens.png" class="responsive-image" alt="Адаптивное изображение">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="projects__filters">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="html">HTML</button>
+                        <button class="filter-btn" data-filter="js">JavaScript</button>
+                        <button class="filter-btn" data-filter="react">React</button>
+                    </div>
+
+                    <div class="projects-area">
+                        <div class="projects__grid">
+                            <article class="project-card" data-category="html">
+                                <div class="project-card_image">
+                                    <picture>
+                                        <source type="image" srcset="../images/project1.avif">
+                                        <source type="image" srcset="../images/project1.webp">
+                                        <img src="../images/project1.png" alt="Личный сайт" loading="lazy" width="300" height="200">
+                                    </picture>
+                                </div>
+                                <div class="project-card_content">
+                                    <h3 class="project-card_title">Личный сайт</h3>
+                                    <p class="project-card_description">HTML, CSS</p>
+                                    <p class="project-card_full-desc">Полностью адаптивный личный сайт с современным дизайном</p>
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-category="js">
+                                <div class="project-card_image">
+                                    <picture>
+                                        <source type="image" srcset="../images/project2.avif">
+                                        <source type="image" srcset="../images/project2.webp">
+                                        <img src="../images/project2.png" alt="Todo-приложение" loading="lazy" width="300" height="200">
+                                    </picture>
+                                </div>
+                                <div class="project-card_content">
+                                    <h3 class="project-card_title">Todo-приложение</h3>
+                                    <p class="project-card_description">JavaScript</p>
+                                    <p class="project-card_full-desc">Интерактивное приложение для управления задачами</p>
+
+                                </div>
+                            </article>
+
+                            <article class="project-card" data-category="react">
+                                <div class="project-card_image">
+                                    <picture>
+                                        <source type="image" srcset="../images/project3.avif">
+                                        <source type="image" srcset="../images/project3.webp">
+                                        <img src="../images/project3.png" alt="Интернет-магазин" loading="lazy" width="300" height="200">
+                                    </picture>
+                                </div>
+                                <div class="project-card_content">
+                                    <h3 class="project-card_title">Интернет-магазин</h3>
+                                    <p class="project-card_description">React</p>
+                                    <p class="project-card_full-desc">Полнофункциональный интернет-магазин с корзиной покупок</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__info">
+                        <p class="footer__text">© 2025 Толстикова Вероника</p>
+                        <p class="footer__subtext">Студентка группы ЭФБО-13-24</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Фильтрация проектов
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

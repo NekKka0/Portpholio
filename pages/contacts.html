@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Контакты - Портфолио студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="logo">
+                        <span class="logo__text">Толстикова Вероника</span>
+                    </div>
+                    <nav class="nav" aria-label="Основная навигация">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                            <li class="nav__item"><a href="projects.html" class="nav__link">Проекты</a></li>
+                            <li class="nav__item"><a href="diary.html" class="nav__link">Дневник</a></li>
+                            <li class="nav__item"><a href="contacts.html" class="nav__link active" aria-current="page">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main" class="main">
+            <section class="contacts">
+                <div class="container">
+                    <h1 class="page-title">Свяжитесь со мной</h1>
+
+                    <div class="contacts__content">
+                        <div class="contact-form">
+                            <form id="contactForm" class="form" novalidate>
+                                <fieldset>
+                                    <legend class="form__legend">Контактная информация</legend>
+
+                                    <div class="form__group">
+                                        <label for="name" class="form__label">
+                                            Имя:
+                                            <span class="required-indicator" aria-hidden="true">*</span>
+                                            <span class="sr-only">обязательное поле</span>
+                                        </label>
+                                        <input type="text" id="name" name="name" class="form__input"
+                                               required aria-required="true"
+                                               aria-describedby="nameError nameHelp">
+                                        <div class="form__help" id="nameHelp">
+                                            Пожалуйста, введите ваше полное имя
+                                        </div>
+                                        <span class="form__error" id="nameError" role="alert" aria-live="polite"></span>
+                                    </div>
+
+                                    <div class="form__group">
+                                        <label for="email" class="form__label">
+                                            Email:
+                                            <span class="required-indicator" aria-hidden="true">*</span>
+                                            <span class="sr-only">обязательное поле</span>
+                                        </label>
+                                        <input type="email" id="email" name="email" class="form__input"
+                                               required aria-required="true"
+                                               aria-describedby="emailError emailHelp">
+                                        <div class="form__help" id="emailHelp">
+                                            Мы не передаем ваш email третьим лицам
+                                        </div>
+                                        <span class="form__error" id="emailError" role="alert" aria-live="polite"></span>
+                                    </div>
+
+                                    <div class="form__group">
+                                        <label for="message" class="form__label">
+                                            Сообщение:
+                                            <span class="required-indicator" aria-hidden="true">*</span>
+                                            <span class="sr-only">обязательное поле</span>
+                                        </label>
+                                        <textarea id="message" name="message" class="form__textarea" rows="5"
+                                                  required aria-required="true"
+                                                  aria-describedby="messageError messageHelp"></textarea>
+                                        <div class="form__help" id="messageHelp">
+                                            Опишите подробно ваш вопрос или предложение
+                                        </div>
+                                        <span class="form__error" id="messageError" role="alert" aria-live="polite"></span>
+                                    </div>
+                                </fieldset>
+
+                                <div class="form__actions">
+                                    <button type="submit" class="btn btn--primary">
+                                        Отправить сообщение
+                                    </button>
+                                    <button type="reset" class="btn btn--secondary">
+                                        Очистить форму
+                                    </button>
+                                </div>
+
+                                <div class="form__status" id="formStatus" role="alert" aria-live="polite"></div>
+                            </form>
+                        </div>
+
+                        <div class="contact-info">
+                            <h2 class="section-title">Контакты</h2>
+                            <div class="contact-list">
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">✉️</span>
+                                    <span class="contact-text">student@edu.ru</span>
+                                </div>
+                                <a href="https://github.com/NekKka0" class="contact-link"
+                                   target="_blank" rel="noopener noreferrer"
+                                   aria-label="Мой GitHub профиль: NekKka0 (откроется в новой вкладке)">
+                                    <span class="contact-icon" aria-hidden="true">🔗</span>
+                                    <span class="contact-text">GitHub: NekKka0</span>
+                                </a>
+                                <div class="contact-item">
+                                    <span class="contact-icon" aria-hidden="true">📍</span>
+                                    <span class="contact-text">Москва, Россия</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__info">
+                        <p class="footer__text">© 2025 Толстикова Вероника</p>
+                        <p class="footer__subtext">Студентка группы ЭФБО-13-24</p>
+                    </div>
+                    <div class="footer__links">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Улучшенная валидация формы с доступностью
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+
+            // Функция для показа ошибок
+            function showError(input, message) {
+                const errorElement = document.getElementById(input.id + 'Error');
+                errorElement.textContent = message;
+                input.setAttribute('aria-invalid', 'true');
+                input.classList.add('form__input--error');
+            }
+
+            // Функция для очистки ошибок
+            function clearError(input) {
+                const errorElement = document.getElementById(input.id + 'Error');
+                errorElement.textContent = '';
+                input.removeAttribute('aria-invalid');
+                input.classList.remove('form__input--error');
+            }
+
+            // Валидация в реальном времени
+            const inputs = contactForm.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    validateField(this);
+                });
+
+                input.addEventListener('input', function () {
+                    if (this.getAttribute('aria-invalid') === 'true') {
+                        validateField(this);
+                    }
+                });
+            });
+
+            // Валидация отдельного поля
+            function validateField(field) {
+                clearError(field);
+
+                if (field.required && field.value.trim() === '') {
+                    showError(field, 'Это поле обязательно для заполнения');
+                    return false;
+                }
+
+                if (field.type === 'email' && field.value.trim() !== '') {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        showError(field, 'Пожалуйста, введите корректный email');
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            // Основная валидация формы
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                let isValid = true;
+                const firstInvalidField = null;
+
+                // Валидация всех полей
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        isValid = false;
+                        if (!firstInvalidField) {
+                            firstInvalidField = input;
+                        }
+                    }
+                });
+
+                if (isValid) {
+                    // Показываем статус успеха
+                    formStatus.textContent = 'Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.';
+                    formStatus.className = 'form__status form__status--success';
+
+                    // Фокусируемся на статусе для скринридеров
+                    formStatus.focus();
+
+                    // Сбрасываем форму через 3 секунды
+                    setTimeout(() => {
+                        contactForm.reset();
+                        formStatus.textContent = '';
+                        formStatus.className = 'form__status';
+                    }, 3000);
+                } else {
+                    // Фокусируемся на первом ошибочном поле
+                    if (firstInvalidField) {
+                        firstInvalidField.focus();
+                    }
+
+                    formStatus.textContent = 'Пожалуйста, исправьте ошибки в форме.';
+                    formStatus.className = 'form__status form__status--error';
+                }
+            });
+
+            // Обработка сброса формы
+            contactForm.addEventListener('reset', function () {
+                inputs.forEach(input => {
+                    clearError(input);
+                });
+                formStatus.textContent = '';
+                formStatus.className = 'form__status';
+            });
+
+            // Добавляем обработку клавиши Escape для сброса фокуса
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    if (document.activeElement && document.activeElement.classList.contains('form__input')) {
+                        document.activeElement.blur();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

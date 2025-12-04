@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Учебный дневник - Портфолио студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="logo">
+                        <span class="logo__text">Толстикова Вероника</span>
+                    </div>
+                    <nav class="nav" aria-label="Основная навигация">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                            <li class="nav__item"><a href="projects.html" class="nav__link">Проекты</a></li>
+                            <li class="nav__item"><a href="diary.html" class="nav__link active">Дневник</a></li>
+                            <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main" class="main">
+            <section class="diary">
+                <div class="container">
+                    <h1 class="page-title">Мой учебный прогресс</h1>
+
+                    <!-- Форма добавления новой записи -->
+                    <div class="add-entry-form" id="addEntryForm" style="display: none;">
+                        <div class="form-container">
+                            <h2 class="section-title">Добавить новую запись</h2>
+                            <form id="newEntryForm" class="form">
+                                <div class="form__group">
+                                    <label for="entryDate" class="form__label">Дата</label>
+                                    <input type="date" id="entryDate" class="form__input" required>
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="entryTitle" class="form__label">Название записи</label>
+                                    <input type="text" id="entryTitle" class="form__input" required
+                                           placeholder="Например: Изучение React hooks">
+                                </div>
+
+                                <div class="form__group">
+                                    <label for="entryDescription" class="form__label">Описание</label>
+                                    <textarea id="entryDescription" class="form__textarea" rows="4"
+                                              placeholder="Подробное описание того, что вы изучили или сделали..."></textarea>
+                                </div>
+
+                                <div class="form__group">
+                                    <label class="form__label">Статус</label>
+                                    <div class="radio-group">
+                                        <div class="radio-option">
+                                            <input type="radio" id="status-completed" name="entryStatus" value="completed" class="form-check-input">
+                                            <label for="status-completed" class="form-check-label">Завершено</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="status-inprogress" name="entryStatus" value="in-progress" class="form-check-input" checked>
+                                            <label for="status-inprogress" class="form-check-label">В процессе</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form__actions">
+                                    <button type="submit" class="btn btn--primary">Добавить запись</button>
+                                    <button type="button" class="btn btn--secondary" id="cancelAddEntry">Отмена</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="diary__content">
+                        <div class="progress-timeline">
+                            <div class="timeline-header">
+                                <h2 class="section-title">Хронология обучения</h2>
+                                <button class="btn btn--primary" id="showAddForm">+ Добавить запись</button>
+                            </div>
+                            <div class="timeline" id="timelineContainer">
+                                <!-- Записи будут добавляться сюда динамически -->
+                                <div class="timeline__item completed">
+                                    <div class="timeline__date">15 дек</div>
+                                    <div class="timeline__content">
+                                        <h3 class="timeline__title">Верстка макета сайта</h3>
+                                        <p class="timeline__description">Завершил верстку адаптивного макета для личного сайта-портфолио с использованием HTML5 и CSS3</p>
+                                        <span class="timeline__status">✓ Завершено</span>
+                                        <button class="timeline__delete" aria-label="Удалить запись">×</button>
+                                    </div>
+                                </div>
+                                <div class="timeline__item completed">
+                                    <div class="timeline__date">10 дек</div>
+                                    <div class="timeline__content">
+                                        <h3 class="timeline__title">JavaScript основы</h3>
+                                        <p class="timeline__description">Изучил основы JavaScript: переменные, функции, обработка событий и DOM манипуляции</p>
+                                        <span class="timeline__status">✓ Завершено</span>
+                                        <button class="timeline__delete" aria-label="Удалить запись">×</button>
+                                    </div>
+                                </div>
+                                <div class="timeline__item in-progress">
+                                    <div class="timeline__date">05 дек</div>
+                                    <div class="timeline__content">
+                                        <h3 class="timeline__title">Работа с формами</h3>
+                                        <p class="timeline__description">Изучаю валидацию форм, работу с различными типами input и accessibility форм</p>
+                                        <span class="timeline__status">В процессе</span>
+                                        <button class="timeline__delete" aria-label="Удалить запись">×</button>
+                                    </div>
+                                </div>
+                                <div class="timeline__item in-progress">
+                                    <div class="timeline__date">01 дек</div>
+                                    <div class="timeline__content">
+                                        <h3 class="timeline__title">Адаптивный дизайн</h3>
+                                        <p class="timeline__description">Практикую создание полностью адаптивных интерфейсов с использованием CSS Grid и Flexbox</p>
+                                        <span class="timeline__status">В процессе</span>
+                                        <button class="timeline__delete" aria-label="Удалить запись">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="current-courses">
+                            <h2 class="section-title">Текущие курсы</h2>
+                            <div class="courses">
+                                <div class="course">
+                                    <div class="course__info">
+                                        <span class="course__name">Веб-разработка</span>
+                                        <span class="course__percent">90%</span>
+                                    </div>
+                                    <div class="course__progress">
+                                        <div class="course__progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="course">
+                                    <div class="course__info">
+                                        <span class="course__name">JavaScript</span>
+                                        <span class="course__percent">70%</span>
+                                    </div>
+                                    <div class="course__progress">
+                                        <div class="course__progress-bar" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="course">
+                                    <div class="course__info">
+                                        <span class="course__name">React</span>
+                                        <span class="course__percent">50%</span>
+                                    </div>
+                                    <div class="course__progress">
+                                        <div class="course__progress-bar" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__info">
+                        <p class="footer__text">© 2025 Толстикова Вероника</p>
+                        <p class="footer__subtext">Студентка группы ЭФБО-13-24</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addEntryForm = document.getElementById('addEntryForm');
+            const showAddFormBtn = document.getElementById('showAddForm');
+            const cancelAddEntryBtn = document.getElementById('cancelAddEntry');
+            const newEntryForm = document.getElementById('newEntryForm');
+            const timelineContainer = document.getElementById('timelineContainer');
+
+            // Установка сегодняшней даты по умолчанию
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('entryDate').value = today;
+
+            // Показать форму добавления записи
+            showAddFormBtn.addEventListener('click', function () {
+                addEntryForm.style.display = 'block';
+                showAddFormBtn.style.display = 'none';
+                // Фокус на первое поле формы для доступности
+                document.getElementById('entryTitle').focus();
+            });
+
+            // Скрыть форму добавления записи
+            cancelAddEntryBtn.addEventListener('click', function () {
+                addEntryForm.style.display = 'none';
+                showAddFormBtn.style.display = 'block';
+                newEntryForm.reset();
+                document.getElementById('entryDate').value = today;
+            });
+
+            // Обработка отправки формы
+            newEntryForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const date = document.getElementById('entryDate').value;
+                const title = document.getElementById('entryTitle').value.trim();
+                const description = document.getElementById('entryDescription').value.trim();
+                const status = document.querySelector('input[name="entryStatus"]:checked').value;
+
+                if (!title) {
+                    alert('Пожалуйста, введите название записи');
+                    return;
+                }
+
+                // Форматирование даты
+                const dateObj = new Date(date);
+                const formattedDate = dateObj.toLocaleDateString('ru-RU', {
+                    day: 'numeric',
+                    month: 'short'
+                });
+
+                // Создание новой записи
+                addNewEntry(formattedDate, title, description, status);
+
+                // Сброс формы и скрытие
+                newEntryForm.reset();
+                document.getElementById('entryDate').value = today;
+                addEntryForm.style.display = 'none';
+                showAddFormBtn.style.display = 'block';
+
+                // Показать сообщение об успехе
+                showNotification('Запись успешно добавлена!');
+            });
+
+            // Функция добавления новой записи
+            function addNewEntry(date, title, description, status) {
+                const newEntry = document.createElement('div');
+                newEntry.className = `timeline__item ${status}`;
+                newEntry.innerHTML = `
+                        <div class="timeline__date">${date}</div>
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">${title}</h3>
+                            ${description ? `<p class="timeline__description">${description}</p>` : ''}
+                            <span class="timeline__status">${status === 'completed' ? '✓ Завершено' : 'В процессе'}</span>
+                            <button class="timeline__delete" aria-label="Удалить запись">×</button>
+                        </div>
+                    `;
+
+                // Добавляем в начало списка
+                timelineContainer.insertBefore(newEntry, timelineContainer.firstChild);
+
+                // Добавляем обработчик удаления для новой записи
+                const deleteBtn = newEntry.querySelector('.timeline__delete');
+                deleteBtn.addEventListener('click', function () {
+                    if (confirm('Вы уверены, что хотите удалить эту запись?')) {
+                        timelineContainer.removeChild(newEntry);
+                        showNotification('Запись удалена');
+                    }
+                });
+            }
+
+            // Функция показа уведомления
+            function showNotification(message) {
+                // Создаем элемент уведомления
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: var(--primary-color);
+                        color: white;
+                        padding: var(--space-md) var(--space-lg);
+                        border-radius: var(--radius);
+                        box-shadow: var(--shadow-lg);
+                        z-index: 1000;
+                        animation: slideIn 0.3s ease;
+                    `;
+
+                document.body.appendChild(notification);
+
+                // Удаляем уведомление через 3 секунды
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 300);
+                }, 3000);
+            }
+
+            // Добавляем обработчики удаления для существующих записей
+            const deleteButtons = document.querySelectorAll('.timeline__delete');
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const entry = this.closest('.timeline__item');
+                    if (confirm('Вы уверены, что хотите удалить эту запись?')) {
+                        timelineContainer.removeChild(entry);
+                        showNotification('Запись удалена');
+                    }
+                });
+            });
+
+            // Добавляем стили для анимации
+            const style = document.createElement('style');
+            style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
